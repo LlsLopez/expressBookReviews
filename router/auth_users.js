@@ -25,9 +25,7 @@ regd_users.post("/login", (req,res) => {
   
     const username = req.body.username;
     const password = req.body.password;
-    console.log(req.body.username);
-    console.log(req.body.password);
-    console.log(users.length);
+
     if(!username || !password){
         return res.status(404).send("Error logging in");
     }
@@ -56,7 +54,6 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
     const username = req.session.authorization.username;
     const book = books[isbn];
 
-    console.log(book.reviews[username]);
     if(books[isbn]){
         if(book.reviews[username]){
             book.reviews[username]=review;
